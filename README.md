@@ -1,2 +1,2 @@
-# -Are-You-a-Woman-
+# Are-You-a-Woman
 This code is a work of art that visually depicts the sexual desires of men and women. When you run the code, it begins by asking whether you are female or not, and the result varies depending on your answer. If you answer 'y' (yes), a picture representing the sexual desires typically pursued by women appears; if you answer 'n' (no), a picture representing the sexual desires typically pursued by men appears. This artwork embodies the message of gender equality, suggesting that just as men and women pursue different sexual desires, Differences in disposition are not 'wrong' but 'different.' In an era where gender conflict is intensifying, I hope this work will be of help as it spreads widely.
