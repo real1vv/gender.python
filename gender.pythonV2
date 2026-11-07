@@ -1,0 +1,103 @@
+import sys,time,os
+os.system("")
+COLORS = {
+    0:(250,222,178), #보지 주변 살
+    1:(222,72,145),  #보지 가장 안쪽 살
+    2:(224, 172, 105), #자지
+    3:(246,151,197), #보지 외곽
+    4:(239,143,138), # 귀두
+    5:(239,118,112), #요도입구
+    7:(231,141,131), #귀두 시작부분
+    6:(237,124,179), #보지 중간부분
+    9:(236,28,129)   #클리
+}
+RESET = '\033[0m'
+while True:
+    a=input("여자입니까?(Are you a woman?) y/n:")
+    print()
+    if a.lower()=="y":
+        d=[]
+        for y in range(19):
+                d.append([])
+                for x in range(19):
+                    if(x==9 and y<2):
+                        d[y].append(5)
+                    elif ((x>=8 and x<=10 and y==0)
+                          or (x>=7 and x<=11 and y==1)
+                          or (x>=6 and x<=12 and y==2)
+                          or (x>=5 and x<=13 and y==3)
+                          or (x>=5 and x<=13 and y==4)
+                          ):
+                        d[y].append(4)
+                    elif ((x>=6 and x<=12 and y==5)
+                          or (x>=6 and x<=12 and y==6)
+                          ):
+                        d[y].append(7)
+                    elif ((x==6 and y>=5 and y<=18)
+                          or (x==7 and y>=5 and y<=18)
+                          or (x==8 and y>=5 and y<=18)
+                          or (x==9 and y>=5 and y<=18)
+                          or (x==10 and y>=5 and y<=18)
+                          or (x==11 and y>=5 and y<=18)
+                          or (x==12 and y>=5 and y<=18)
+                          or (x==0 and y>=15 and y<=18)
+                          or (x==1 and y>=14 and y<=18)
+                          or (x==2 and y>=13 and y<=18)
+                          or (x==3 and y>=13 and y<=18)
+                          or (x==4 and y>=14 and y<=18)
+                          or (x==5 and y>=15 and y<=18)
+                          or (x==13 and y>=15 and y<=18)
+                          or (x==14 and y>=14 and y<=18)
+                          or (x==15 and y>=13 and y<=18)
+                          or (x==16 and y>=13 and y<=18)
+                          or (x==17 and y>=14 and y<=18)
+                          or (x==18 and y>=15 and y<=18)
+                    ):
+                        d[y].append(2)
+                    else:
+                        d[y].append(0)
+    elif a.lower()=="n":
+        d=[]
+        for y in range(19):
+            d.append([])
+            for x in range(19):
+                if (x==9 and y==6):
+                    d[y].append(9)
+                elif (x==9 and y>=9 and y<=10):
+                    d[y].append(1)
+                elif ((x==9 and y>=7 and y<=12)
+                      or (x>=8 and x<=10 and y==7)
+                      or (x>=8 and x<=10 and y==8)
+                      or (x>=8 and x<=10 and y==9)
+                      or (x>=8 and x<=10 and y==10)
+                      or (x>=8 and x<=10 and y==11)
+                      ):
+                    d[y].append(6)
+                elif ((x==9 and y>=5 and y<=13)
+                      or (x>=8 and x<=10 and y==6)
+                      or (x>=8 and x<=10 and y==7)
+                      or (x>=7 and x<=11 and y==8)
+                      or (x>=7 and x<=11 and y==9)
+                      or (x>=7 and x<=11 and y==10)
+                      or (x>=7 and x<=11 and y==11)
+                      or (x>=8 and x<=10 and y==12)
+                      ):
+                    d[y].append(3)
+                else:
+                    d[y].append(0)
+    else:
+        d=[]
+        print("엄마뒤진새끼네 이거")
+    for row in d:
+            for c in row:
+                r,g,b=COLORS.get(c,(0,0,0))
+                sys.stdout.write(f'\033[48;2;{r};{g};{b}m  {RESET}')
+                sys.stdout.flush()
+                time.sleep(0.01)
+            sys.stdout.write("\n")
+    print()
+    b=input("성별을 다시 정하시겠습니까?(y/n):")
+    print()
+    if b.lower()!="y":
+        print("그럼 꺼지세요 씨이~발!")
+        break
